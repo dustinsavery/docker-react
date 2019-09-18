@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dsavery/docker-react -f dev.dockerfile .
+
+script:
+  - docker run dsavery/docker-react npm run test -- --watchAll=false
